@@ -1,0 +1,48 @@
+\section{Discussion}\label{sec:discussion}
+
+\paragraph{What changed.} The first kernel and the new one execute the same instructions with the same frame
+semantics and the same noise decision rules; they differ in the counter based generator that supplies the random
+words, and in where the work happens: noise generation moved off the critical loop into its own
+pipelined stage, frame hazards moved from hardware into the compiler's schedule, detector folding moved into a stage
+that overlaps the next batch, and the cost of a launch is shared by thousands of batches instead of one. Each of these
+is a standard technique; together they turn the interpreter of the first kernel into a pipeline whose rate the
+compiled program alone determines.
+
+\paragraph{Nodes without communication.} Our distributed statevector simulator on the same four cards spends much of
+its time exchanging amplitudes through host memory, and more cards add capacity there rather than
+speed~\cite{ali2026multifpga}. Sampling is the opposite case: with independent random streams per node the nodes do
+not interact, and the four card rate is four times the one card rate (Table~\ref{tab:throughput}). The node model carries over
+unchanged; what decides scaling is whether the workload needs data from other nodes. For workloads of this kind,
+more cards in a host, or hosts with cards, add rate in proportion until the host can no longer collect the output.
+
+\paragraph{Routability as the limit.} The synthesis estimates were never the obstacle: every version of the kernel that
+was implemented reached one slot per cycle and an estimated clock above the 300~MHz target. What decided between a working and a
+failing design was routing, and the cause was density rather than size: the failed designs used \NumPhiloxDspCardPct\,\%
+of the DSP blocks available to user logic but packed them into the DSP columns of the regions they occupied, and
+the conflicting nets of every failed run lay in the instance that shared SLR0 with the platform logic. A generator
+built from adders and rotations, which spreads over ordinary logic, and the move away from SLR0 turned five hour runs
+that failed into a two hour run that met timing. For HLS designs that replicate arithmetic units in
+parallel, we found the placement of those units on the device to matter as much as their number.
+
+\paragraph{Limits of the kernel.} The frame memory holds \NumQubitsMax{} qubits after renumbering, enough for the
+rotated surface code up to distance 7 (\NumSlotsSevenQubits{} qubits) but not distance 9. The program memory holds
+\NumProgMax{} slots, the measurement record \NumMeasMax{} measurements and the output stage \NumOutMax{} detectors and
+observables. Larger codes need wider limits; the frame memory grows linearly with the qubit count, and the program
+and record memories are on chip block RAM. The instruction set covers the gates, measurements, resets and noise channels
+of the generated memory experiments (H, S, CX, CZ, SWAP, measurement and reset in three bases, measure and reset,
+single qubit Pauli errors, single and two qubit depolarizing noise); other Clifford gates, correlated errors and
+Pauli product measurements would need further opcodes. Like the first kernel, it uses the frame semantics that
+follow from a Clifford circuit; it does not handle non Clifford gates.
+
+\paragraph{Limits of the comparison.} The CPU baseline is Stim's own detector sampler with one process per hardware
+thread, which is how Stim is used for large sampling campaigns; a multi threaded sampler built on Stim might do better
+on the same CPU. The comparison concerns sampling only: compiling the circuit, deriving the detector error model and
+decoding are done on the host in both cases and are not timed. Energy was not compared, because the host provides no
+power measurement of the CPU that would match the board power readings of the cards. The repetition code has only five qubits, so
+most slots of its program are NOPs that keep reuses of a qubit apart (Table~\ref{tab:programs}); its rate reflects
+the schedule more than the circuit, and the larger circuits are the more representative ones.
+
+\paragraph{Embedded use.} The kernel needs no host interaction while a launch runs and its output is a stream of
+detector words. The same pipeline could therefore feed a decoder on the same device or on a device next to it,
+replacing recorded test data with live samples at hardware rate, which would make the sampler a test source for the
+FPGA decoders of Section~\ref{sec:related}. We have not built that combination.

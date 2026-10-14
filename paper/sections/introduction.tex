@@ -1,0 +1,54 @@
+\section{Introduction}\label{sec:intro}
+
+Quantum error correction protects logical information by measuring stabilizers of a code repeatedly and decoding the
+resulting detector events. The surface code~\cite{kitaev2003anyons,dennis2002topological,fowler2012surface} is the
+leading candidate, and recent experiments have shown logical error rates that fall as the code distance
+grows~\cite{google2023scaling,google2025below}. Designing such experiments, estimating thresholds and benchmarking
+decoders~\cite{higgott2022pymatching,higgott2025sparse,delfosse2021unionfind} all depend on Monte Carlo sampling:
+a noisy stabilizer circuit is sampled millions to billions of times, and every sample (a shot) yields one bit per
+detector and per logical observable. The statistical error of a logical error rate $p_L$ estimated from $N$ shots is
+about $\sqrt{p_L/N}$, so resolving the small error rates that matter for fault tolerance needs very many shots.
+
+Stim~\cite{gidney2021stim} made this workload fast on CPUs. It computes one noiseless reference sample of the circuit
+with a stabilizer tableau~\cite{gottesman1998heisenberg,aaronson2004chp} and then samples noisy shots by propagating
+only the Pauli frame~\cite{knill2005noisy}, the deviation of each shot from the reference, through the circuit. A
+frame update is a few bitwise operations per gate, applied to many shots packed into one machine word. The work is
+therefore regular, branch free and independent between shots: an obvious match for a deeply pipelined hardware
+datapath with wide words, and also for many devices working side by side.
+
+This paper treats that observation as a systems question for FPGA accelerators. In earlier work we built a
+distributed statevector simulator on four Alveo U55C cards in one host, in which every card is a node that holds a
+slice of the state, and amplitudes move between nodes through host memory~\cite{ali2026multifpga}. Treating the cards
+as the nodes of a small cluster, with the host acting as interconnect and scheduler, is the model that let four cards
+work as one machine there, and it is the model we adopt here.
+Pauli frame sampling fits the same node model, with one important difference: shots are independent, so nodes never
+need to exchange data. The questions are then how fast one node can run, whether four nodes scale without
+interfering through the shared host, and how the result compares with Stim running on all cores of the same host.
+
+A first single card kernel for this workload, which we built earlier in this project and which has not been
+published (Section~\ref{sec:first}), validated the approach end to end on hardware but was slower than one Stim process on every circuit tested, because its instruction
+loop was not pipelined and each launch sampled only 64 shots. Here we redesign the kernel around the three costs that
+dominated it and run it on four nodes. The contributions are:
+\begin{itemize}
+\item A dataflow kernel that processes one instruction slot per clock cycle for \NumLanes{} shots
+(Section~\ref{sec:arch}): a pipelined counter based noise stage, a Pauli frame in a one read, one write memory that
+completes every slot two cycles after reading it, and a detector fold stage that works on a per batch measurement
+record while the next batch is simulated.
+\item A compiler schedule that removes all frame hazards ahead of time: two slots on the same qubit are placed at
+least \NumHazardDistance{} slots apart, so the frame pipeline needs no hazard logic and still runs at the full rate
+(Section~\ref{sec:frame}). On a distance 5 surface code the schedule adds only its \NumNopsSurfFive{} padding
+slots.
+\item A node model for independent sampling on several cards, in which every node, kernel instance and batch draws
+its own Threefry stream~\cite{salmon2011random123} and the host only launches work and collects results
+(Section~\ref{sec:nodes}).
+\item A verification chain from a software model through C simulation and RTL cosimulation to every card, closed by
+statistical comparison with Stim and by decoded logical error rates up to distance 7
+(Sections~\ref{sec:verification} and~\ref{sec:res-correct}).
+\item Measurements on one, two and four cards against Stim with one process and with all cores of the same host
+(Section~\ref{sec:res-throughput}).
+\end{itemize}
+
+Section~\ref{sec:related} reviews related work, Section~\ref{sec:nodes} describes the node model and
+Section~\ref{sec:arch} the kernel. Section~\ref{sec:verification} gives the verification method,
+Section~\ref{sec:setup} the experimental setup and Section~\ref{sec:results} the results.
+Section~\ref{sec:discussion} discusses limits and Section~\ref{sec:conclusions} concludes.

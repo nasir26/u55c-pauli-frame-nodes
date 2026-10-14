@@ -1,0 +1,132 @@
+\section{Results}\label{sec:results}
+
+\subsection{Compiled programs}\label{sec:res-programs}
+
+Table~\ref{tab:programs} lists the compiled programs. The schedule of Section~\ref{sec:frame} adds no NOPs beyond
+the padding for the distance 5 and 7 surface codes, whose layers hold many independent instructions; their slot
+counts exceed the instruction counts by the second slots of the two qubit instructions. The distance 3
+surface code needs a few NOPs and the repetition code, with five qubits, needs most of its slots as NOPs; both
+programs are short, so a batch still takes only a few hundred cycles.
+
+\begin{table}[t]
+\caption{Compiled programs. Instructions excludes the NOPs inserted by the schedule. Slots, the cycles per batch of
+the frame stage, counts one slot per single qubit instruction, two per two qubit instruction and one per NOP.
+Columns: qubits after renumbering, instructions, two qubit (2q) instructions, NOPs, slots, measurements,
+outputs (detectors plus observables) and fold entries.}\label{tab:programs}
+\input{generated/tab_programs.tex}
+\end{table}
+
+\subsection{Synthesis and implementation}\label{sec:res-impl}
+
+All loops of the kernel were scheduled by Vitis HLS with an initiation interval of one cycle, and HLS estimated a
+maximum clock of \NumHlsFmax{}~MHz for a target of 300~MHz. Placing and routing the kernel on the card was the
+difficult step. Table~\ref{tab:builds} lists every implementation run, each with two instances at 300~MHz. The
+\NumFailedBuilds{} runs with the Philox noise stage all failed Vivado's verification of the routed design with
+conflicting nets, after about five hours each: first with the frame in registers, then with the frame in LUT RAM, and
+then also with a placement directive that spreads logic to relieve congestion. The congestion analysis of the first
+run (Section~\ref{sec:frame}) explains the pattern: removing the register crossbar removed the short range hot spots,
+but the noise stage with \NumPhiloxDsp{} DSP blocks per instance still filled the DSP columns of its region, and in
+all three runs every one of the ten conflicting nets that Vivado lists lay in the instance placed in SLR0, which it
+shares with the platform's HBM and DMA logic. Replacing Philox by Threefry removed the DSP demand (\NumHlsDsp{} DSP blocks per instance), and the
+instances were moved to SLR1 and SLR2. With both changes the design routed: the placer no longer reported the
+design as congested, and the run with the standard placement directive met timing at 300~MHz with a worst negative
+slack of \NumWns{}~ns after \NumTfImplTime{} of implementation, less than half the time of each failed run. The
+parallel run with the spreading directive was stopped once this result was available.
+
+\begin{table}[t]
+\caption{Implementation runs of the kernel on the Alveo U55C, two instances at a 300~MHz target. Frame: frame stage
+storage. Generator: Philox4x32-10 or Threefry4x32-20. SLRs: the regions of the two instances. Placement: Vivado
+directive ExtraTimingOpt (timing) or AltSpreadLogic\_high (spread). DSP: DSP blocks per instance (HLS). Time: Vivado
+placement and routing. All runs used the
+same post route optimisation settings.}\label{tab:builds}
+\input{generated/tab_builds.tex}
+\end{table}
+
+Table~\ref{tab:resources} compares the HLS estimate of one instance with the routed design. The HLS estimate of logic is
+conservative: a routed instance uses \NumRoutedLutOne{} LUTs
+against \NumHlsLut{} estimated. The routed design runs at \NumKernelMhz{}~MHz with a worst negative slack of
+\NumWns{}~ns.
+
+\begin{table}[t]
+\caption{Resources of the kernel. HLS: estimate for one instance, in percent of one SLR. Routed: one instance, and
+all \NumInstancesPerCard{} instances of a card in percent of the resources available to user logic, from the post
+route utilisation report.}\label{tab:resources}
+\input{generated/tab_resources.tex}
+\end{table}
+
+RTL cosimulation of the distance 3 surface code took \NumCosimCyclesA{} cycles for \NumCosimBatchesA{} batches and
+\NumCosimCyclesB{} cycles for \NumCosimBatchesB{}, that is \NumCosimPerBatch{} cycles per additional batch for a
+program of \NumSlotsSurfThree{} slots. The four stages keep pace with each other: the frame stage completes one slot
+per cycle, and a batch costs \NumCosimOverhead{} cycles more than its slots.
+
+\subsection{Correctness on hardware}\label{sec:res-correct}
+
+Every kernel instance of every card produced output bit identical to the software model for the three benchmark
+circuits (\NumBenchCheckPassed{} of \NumBenchCheckTotal{} card and circuit checks). Table~\ref{tab:tier4} gives the
+Tier 4 comparison with Stim and Table~\ref{tab:ler} the Tier 5 logical error rates. All outputs of all circuits agree
+with Stim within the $5\sigma$ bound (largest $|z|$ \NumTierFourMaxZ{}), and the decoded logical error rates of
+hardware and Stim samples agree at every distance and error rate (largest $|z|$ \NumTierFiveMaxZ{}). The rates show
+the expected behaviour of the surface code: below threshold the logical error rate falls with distance, at
+$p=0.01$ it rises.
+
+\begin{table}[t]
+\caption{Tier 4: detector and observable firing rates of hardware samples against Stim. The largest two proportion
+$|z|$ over all outputs of a circuit is reported.}\label{tab:tier4}
+\input{generated/tab_tier4.tex}
+\end{table}
+
+\begin{table}[t]
+\caption{Tier 5: logical error rates (LER) of rotated surface code memory experiments, hardware samples against Stim
+samples, both decoded by the same PyMatching matcher.}\label{tab:ler}
+\input{generated/tab_ler.tex}
+\end{table}
+
+\subsection{Throughput on one, two and four nodes}\label{sec:res-throughput}
+
+Table~\ref{tab:throughput} and Figure~\ref{fig:throughput} give the measured sampling rates. One card with
+\NumInstancesPerCard{} instances samples the distance 5 surface code at \NumFpgaOneSurfFive{} shots per second, and four
+cards at \NumFpgaFourSurfFive{}. Going from one to four nodes multiplies the rate by \NumScaleFactorMin{} to
+\NumScaleFactorMax{} over the three circuits, that is, the nodes scale linearly: they share nothing but the host,
+and at these output volumes the host side (launching, copying results to host memory, synchronising the processes)
+does not limit the rate. The per card rates within a run differ by less than one percent. The FPGA temperatures read before and after
+every configuration were at most \NumMaxFpgaTemp{}~\textdegree C.
+
+\begin{table}[t]
+\caption{Sampling rates in shots per second (median of \NumBenchReps{} runs) on one, two and four cards. $S_4$: four
+card rate over one card rate. $R_1$, $R_{\mathrm{all}}$: four card rate over Stim on the same host with one process
+and with \NumCpuMaxProcs{} processes (Table~\ref{tab:cpu}). All rates count only shots whose outputs have reached host
+memory.}\label{tab:throughput}
+\input{generated/tab_throughput.tex}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/fig_throughput.pdf}
+\caption{Sampling rate of the three benchmark circuits on one, two and four cards, and of Stim with one process and
+with all hardware threads of the host. Logarithmic scale.}\label{fig:throughput}
+\end{figure}
+
+\begin{table}[t]
+\caption{Stim~\NumStimVersion{} on the host: shots per second with $P$ concurrent processes.}\label{tab:cpu}
+\input{generated/tab_cpu.tex}
+\end{table}
+
+Against one Stim process, the four node system is faster by the factors in Table~\ref{tab:throughput}
+(\NumRatioOneSurfFive{} times for the distance 5 surface code). The more demanding comparison is with Stim on all
+\NumHostThreads{} hardware threads of the same host: there the four node system reaches \NumRatioAllSurfFive{} times
+the CPU rate for the distance 5 surface code, \NumRatioAllSurfThree{} times for the distance 3 surface code and
+\NumRatioAllRep{} times for the repetition code. Stim's rate grows less than linearly with the number of processes
+(Table~\ref{tab:cpu}); we did not investigate the cause on this host.
+
+\subsection{Comparison with the first kernel and with the cycle model}\label{sec:res-first}
+
+On one card the first kernel sampled the three circuits at \NumFirstKernelRep{}, \NumFirstKernelSurfThree{} and
+\NumFirstKernelSurfFive{} shots per second (Section~\ref{sec:first}), measured at a 250~MHz kernel clock on the
+project's build host, whose CPU is the same model. The new kernel on one card is faster by factors of
+\NumOverFirstRep{}, \NumOverFirstSurfThree{} and \NumOverFirstSurfFive{}. The cycle count of the kernel predicts the
+rate of a card from the program alone: an instance delivers \NumLanes{} shots per batch, and a batch takes as many
+cycles as the largest of its slot count, its measurement and fold work, and its output count, so a card should
+sample at \NumModelCardRep{}, \NumModelCardSurfThree{} and \NumModelCardSurfFive{} shots per second. The measured one
+card rates are \NumModelFracRep\,\%, \NumModelFracSurfThree\,\% and \NumModelFracSurfFive\,\% of these predictions; the
+remainder is launch overhead and the copy of results to host memory, which weigh most for the short repetition code
+program.

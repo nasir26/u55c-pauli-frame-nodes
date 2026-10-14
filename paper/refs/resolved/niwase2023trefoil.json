@@ -1,0 +1,39 @@
+{
+ "source": "crossref",
+ "doi": "10.1109/icfpt59805.2023.00049",
+ "title": "Enormous-Scale Quantum State Vector Calculation with FPGA-accelerated SATA storages",
+ "venue": "2023 International Conference on Field Programmable Technology (ICFPT)",
+ "volume": null,
+ "issue": null,
+ "pages": "288-289",
+ "year": 2023,
+ "authors": [
+  [
+   "Niwase",
+   "Ryohei"
+  ],
+  [
+   "Harasawa",
+   "Hikaru"
+  ],
+  [
+   "Yamaguchi",
+   "Yoshiki"
+  ],
+  [
+   "Wei",
+   "Kaijie"
+  ],
+  [
+   "Amano",
+   "Hideharu"
+  ],
+  [
+   "Miyoshi",
+   "Takefumi"
+  ]
+ ],
+ "type": "proceedings-article",
+ "publisher": "IEEE",
+ "url": "https://doi.org/10.1109/icfpt59805.2023.00049"
+}

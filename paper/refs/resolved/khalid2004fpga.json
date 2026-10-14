@@ -1,0 +1,27 @@
+{
+ "source": "crossref",
+ "doi": "10.1109/iccd.2004.1347938",
+ "title": "FPGA emulation of quantum circuits",
+ "venue": "IEEE International Conference on Computer Design: VLSI in Computers and Processors, 2004. ICCD 2004. Proceedings.",
+ "volume": null,
+ "issue": null,
+ "pages": "310-315",
+ "year": 2004,
+ "authors": [
+  [
+   "Khalid",
+   "A.U."
+  ],
+  [
+   "Zilic",
+   "Z."
+  ],
+  [
+   "Radecka",
+   "K."
+  ]
+ ],
+ "type": "proceedings-article",
+ "publisher": "IEEE",
+ "url": "https://doi.org/10.1109/iccd.2004.1347938"
+}

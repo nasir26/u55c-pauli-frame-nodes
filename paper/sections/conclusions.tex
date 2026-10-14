@@ -1,0 +1,15 @@
+\section{Conclusions}\label{sec:conclusions}
+
+We presented a Pauli frame sampler for stabilizer circuits that processes one instruction slot per clock cycle for
+\NumLanes{} shots per kernel instance, and ran it on four Alveo U55C cards treated as independent nodes of one host. A pipelined
+counter based noise stage, a one read, one write frame pipeline whose hazards the compiler schedules away, and a
+detector fold that overlaps the next batch remove the costs that made the first kernel slower than one CPU process. The kernel is bit
+exact against its software model in C simulation, in RTL cosimulation and on every card, and its samples agree with
+Stim in detector rates and in decoded logical error rates up to distance 7. On four nodes it samples the distance 5
+surface code at \NumFpgaFourSurfFive{} shots per second, \NumRatioOneSurfFive{} times one Stim process and
+\NumRatioAllSurfFive{} times Stim on all \NumHostThreads{} hardware threads of the host.
+
+The routed design with two instances occupies \NumRoutedLutPct\,\% of the LUTs available to user logic and almost
+no DSP blocks, which leaves room for more instances per card. The next steps are such wider configurations, wider
+limits for larger codes, and a direct connection of the sampler to an FPGA decoder so that decoders can be tested
+with live samples.

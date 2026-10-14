@@ -1,0 +1,13 @@
+Estimating thresholds and benchmarking decoders for quantum error correction requires sampling very large numbers of
+detector outcomes from noisy stabilizer circuits, today mostly with the Stim library on CPUs. We
+present a Pauli frame sampler for the AMD Alveo U55C that processes one instruction slot per clock cycle for
+\NumLanes{} shots at a time, and we run it on four cards in one host that are treated as independent nodes, as in our
+earlier multi FPGA statevector simulator. Three changes remove the bottlenecks of a first single card kernel:
+noise masks are produced by a separate pipelined stage from a multiplier free counter based generator, the Pauli frame of up
+to \NumQubitsMax{} qubits is updated through a one read, one write pipeline whose hazards the compiler removes by
+scheduling, and detectors are folded from a per batch measurement record while the next batch runs. Each card holds \NumInstancesPerCard{} kernel instances in separate super logic regions, and every node, instance
+and batch draws its own random stream, so the nodes exchange no data. The kernel is bit exact against a software model in
+C simulation, in RTL cosimulation and on every card, and its detector rates and decoded logical error rates agree with
+Stim for surface codes up to distance 7. On four cards the sampler delivers \NumFpgaFourSurfFive{} shots per second
+for a distance 5 surface code, against \NumCpuOneSurfFive{} for one Stim process and
+\NumCpuAllSurfFive{} for \NumCpuMaxProcs{} Stim processes on the host's \NumHostThreads{} hardware threads.

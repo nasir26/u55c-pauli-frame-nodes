@@ -1,0 +1,23 @@
+{
+ "source": "crossref",
+ "doi": "10.1103/physreva.73.022334",
+ "title": "Fast simulation of stabilizer circuits using a graph-state representation",
+ "venue": "Physical Review A",
+ "volume": "73",
+ "issue": "2",
+ "pages": "022334",
+ "year": 2006,
+ "authors": [
+  [
+   "Anders",
+   "Simon"
+  ],
+  [
+   "Briegel",
+   "Hans J."
+  ]
+ ],
+ "type": "journal-article",
+ "publisher": "American Physical Society (APS)",
+ "url": "https://doi.org/10.1103/physreva.73.022334"
+}

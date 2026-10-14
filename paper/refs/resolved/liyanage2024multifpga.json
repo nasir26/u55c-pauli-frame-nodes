@@ -1,0 +1,31 @@
+{
+ "source": "crossref",
+ "doi": "10.1109/qce60285.2024.10435",
+ "title": "Multi-FPGA System for Quantum Error Correction with Lattice Surgery",
+ "venue": "2024 IEEE International Conference on Quantum Computing and Engineering (QCE)",
+ "volume": null,
+ "issue": null,
+ "pages": "622-623",
+ "year": 2024,
+ "authors": [
+  [
+   "Liyanage",
+   "Namitha"
+  ],
+  [
+   "Wu",
+   "Yue"
+  ],
+  [
+   "Houghton",
+   "Emmet"
+  ],
+  [
+   "Zhong",
+   "Lin"
+  ]
+ ],
+ "type": "proceedings-article",
+ "publisher": "IEEE",
+ "url": "https://doi.org/10.1109/qce60285.2024.10435"
+}

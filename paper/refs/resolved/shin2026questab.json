@@ -1,0 +1,31 @@
+{
+ "source": "crossref",
+ "doi": "10.1145/3797905.3816723",
+ "title": "quEStab: Towards Scalable Quantum Circuit Simulation on Multi-GPU using an Extended Stabilizer Formalism",
+ "venue": "Proceedings of the 40th ACM International Conference on Supercomputing",
+ "volume": null,
+ "issue": null,
+ "pages": "1296-1309",
+ "year": 2026,
+ "authors": [
+  [
+   "Shin",
+   "Hyunjoon"
+  ],
+  [
+   "Lee",
+   "Seokhyeon"
+  ],
+  [
+   "Kwak",
+   "Myeongjin"
+  ],
+  [
+   "Kim",
+   "Yongtae"
+  ]
+ ],
+ "type": "proceedings-article",
+ "publisher": "ACM",
+ "url": "https://doi.org/10.1145/3797905.3816723"
+}

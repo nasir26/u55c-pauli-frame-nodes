@@ -1,0 +1,36 @@
+\section{Verification method}\label{sec:verification}
+
+A sampler that is fast but subtly biased is worse than a slow one, because its errors propagate silently into
+threshold estimates. The kernel is therefore checked at every level of its implementation against a single software
+model, and the model is checked against Stim.
+
+\paragraph{Software model.} The model interprets the compiled program in Python with one boolean frame per qubit and
+shot. Its gate, measurement, noise and fold semantics are those of the model of the first kernel, which was validated
+against Stim and against single fault injection from Stim's detector error model (Section~\ref{sec:first}); only the
+random stream of Section~\ref{sec:noise} is new. Given the program, the seed, the node key and the batch range, the model
+produces the exact output words the kernel must produce.
+
+\paragraph{Bit exact levels.} The same comparison is applied at four levels, each catching a different class of
+error:
+\begin{enumerate}
+\item C simulation of the kernel source compiled with g++, for four circuits (repetition code, surface code memory in
+the Z and the X basis), two seeds and two batch offsets, one of them near the top of the 32 bit batch counter range. Noiseless circuits must give all zero outputs.
+\item The negative control of Section~\ref{sec:frame}, which shows that the C simulation would detect a schedule
+violation.
+\item RTL cosimulation of the synthesised kernel with Vitis HLS, which runs the generated hardware description,
+including the pipelined frame stage and the concurrent dataflow stages: the repetition code, in which \NumRepReusesAtD{} of the
+\NumRepReuses{} reuses of a qubit are at the minimum schedule distance, and \NumCosimBatchesA{} and \NumCosimBatchesB{} batches of the
+distance 3 surface code, which uses every gate and noise type of the benchmarks.
+\item Every kernel instance of every card on hardware, for the three benchmark circuits, with the node key of that
+card and batch offsets in two launches.
+\end{enumerate}
+
+\paragraph{Statistical levels.} Bit exactness against the model establishes that the hardware computes what the model
+computes. Agreement with Stim then establishes that the model samples the right distribution. Two tests are run on
+hardware samples. Tier 4 compares the firing rate of every detector and observable with Stim's sampler over
+\NumTierFourShots{} shots per side for the three benchmark circuits, using a two proportion $z$ score per output and
+requiring $|z|<5$ for all of them. Tier 5 decodes hardware samples and Stim samples of rotated surface code memory
+experiments with distance $d=3,5,7$ ($d$ rounds) and physical error rate $p=0.001,0.003,0.01$ with the same
+PyMatching~\cite{higgott2022pymatching,higgott2025sparse} matcher, built from Stim's detector error model, and requires
+the logical error rates to agree with $|z|<5$. Distance 7 could not be run on the first kernel, which lacked the
+qubit renumbering.

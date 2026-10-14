@@ -1,0 +1,35 @@
+{
+ "source": "crossref",
+ "doi": "10.1109/tc.2024.3521546",
+ "title": "Qu-Trefoil: Large-Scale Quantum Circuit Simulator Working on FPGA With SATA Storages",
+ "venue": "IEEE Transactions on Computers",
+ "volume": "74",
+ "issue": "4",
+ "pages": "1306-1321",
+ "year": 2025,
+ "authors": [
+  [
+   "Wei",
+   "Kaijie"
+  ],
+  [
+   "Amano",
+   "Hideharu"
+  ],
+  [
+   "Niwase",
+   "Ryohei"
+  ],
+  [
+   "Yamaguchi",
+   "Yoshiki"
+  ],
+  [
+   "Miyoshi",
+   "Takefumi"
+  ]
+ ],
+ "type": "journal-article",
+ "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+ "url": "https://doi.org/10.1109/tc.2024.3521546"
+}

@@ -1,0 +1,43 @@
+\section{Related work}\label{sec:related}
+
+\paragraph{Stabilizer simulation.} The Gottesman Knill theorem makes Clifford circuits efficiently simulable through
+the Heisenberg picture of stabilizer groups~\cite{gottesman1998heisenberg}. Aaronson and Gottesman gave the tableau
+algorithm with destabilizers~\cite{aaronson2004chp}, and Anders and Briegel a graph state representation that they found
+faster than the tableau algorithm~\cite{anders2006graph}. Stim~\cite{gidney2021stim} combines a tableau simulation of one
+reference shot with Pauli frame sampling of all other shots, vectorised over shots with SIMD instructions; it also
+derives the detector error model of a circuit, which decoders such as PyMatching consume~\cite{higgott2022pymatching,
+higgott2025sparse}. SymPhase accumulates possible Pauli faults as symbolic phases during a single pass over the circuit and draws
+samples by substituting values into the symbolic measurement outcomes; its authors report shorter sampling times than
+Stim on their benchmarks~\cite{fang2024symphase}. All of these run on CPUs.
+
+\paragraph{Accelerated stabilizer simulation.} Osama, Thanos and Laarman reformulate tableau evolution and
+measurement for GPUs in the QuaSARQ simulator; they report speedups of up to 105 times on circuits with up to 180,000
+qubits, consistently shorter run times than Stim, and an advantage in many shot sampling on large
+workloads~\cite{osama2026gpu}. quEStab extends the tableau to mixed Clifford and non Clifford circuits on several
+GPUs~\cite{shin2026questab}. These GPU simulators are built around the tableau of wide circuits; the sampler of this
+paper instead streams the Pauli frames of many shots of a small QEC circuit through a fixed pipeline, and its output is
+the detector and observable bits that a decoding study consumes. We are not aware of an FPGA implementation of Pauli
+frame sampling other than our own first kernel (Section~\ref{sec:first}); searches of Crossref and arXiv for FPGA
+based stabilizer, Clifford or Pauli frame simulators found none.
+
+\paragraph{FPGAs for quantum circuit simulation.} FPGA emulation of quantum circuits dates back two
+decades~\cite{khalid2004fpga}. Statevector simulators on HBM equipped cards reach 30 qubits on one
+card~\cite{tiwari2026fpga30}, and our four card simulator distributes a statevector over the cards of one host and
+treats each card as a node~\cite{ali2026multifpga}. Trefoil and Qu-Trefoil distribute much larger states over FPGAs
+attached to SATA storage~\cite{niwase2023trefoil,wei2025qutrefoil}. Statevector simulation is limited by memory and by
+the exchange of amplitudes between devices; Pauli frame sampling is limited by neither, which is why it scales over
+nodes without communication.
+
+\paragraph{FPGAs in quantum error correction.} Most FPGA work in QEC concerns decoding, where latency matters:
+lookup table decoders for small codes~\cite{das2022lilliput}, distributed union find decoders~\cite{
+delfosse2021unionfind,liyanage2023fpga,liyanage2024distributed}, HeliosNet, which decodes lattice surgery operations
+on five FPGAs connected as a network~\cite{liyanage2024multifpga}, the Collision Clustering decoder on FPGA and ASIC
+hardware with megahertz decoding rates~\cite{barber2025decoder}, and real time correction for the Shor and Steane
+codes~\cite{ali2026qec}. These systems consume syndromes; the sampler of this
+paper produces them, for the offline studies that design codes and test decoders. The two are complementary, and a
+sampler that runs on the same class of device as a decoder can feed it test data at hardware rates.
+
+\paragraph{High level synthesis.} The kernel is written in C++ and compiled with Vitis HLS~\cite{amd_ug1399}; Cong et
+al.\ review the methodology~\cite{cong2011hls}. The design choices below (dataflow stages connected by streams, loops
+pipelined to one iteration per cycle, arrays partitioned into registers) are standard HLS constructs; the
+contribution is how the sampling algorithm is arranged so that these constructs reach full rate.

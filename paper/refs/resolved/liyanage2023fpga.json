@@ -1,0 +1,31 @@
+{
+ "source": "crossref",
+ "doi": "10.1109/qce57702.2023.00106",
+ "title": "Scalable Quantum Error Correction for Surface Codes Using FPGA",
+ "venue": "2023 IEEE International Conference on Quantum Computing and Engineering (QCE)",
+ "volume": null,
+ "issue": null,
+ "pages": "916-927",
+ "year": 2023,
+ "authors": [
+  [
+   "Liyanage",
+   "Namitha"
+  ],
+  [
+   "Wu",
+   "Yue"
+  ],
+  [
+   "Deters",
+   "Alexander"
+  ],
+  [
+   "Zhong",
+   "Lin"
+  ]
+ ],
+ "type": "proceedings-article",
+ "publisher": "IEEE",
+ "url": "https://doi.org/10.1109/qce57702.2023.00106"
+}

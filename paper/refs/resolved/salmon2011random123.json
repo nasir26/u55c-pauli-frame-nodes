@@ -1,0 +1,31 @@
+{
+ "source": "crossref",
+ "doi": "10.1145/2063384.2063405",
+ "title": "Parallel random numbers",
+ "venue": "Proceedings of 2011 International Conference for High Performance Computing, Networking, Storage and Analysis",
+ "volume": null,
+ "issue": null,
+ "pages": "1-12",
+ "year": 2011,
+ "authors": [
+  [
+   "Salmon",
+   "John K."
+  ],
+  [
+   "Moraes",
+   "Mark A."
+  ],
+  [
+   "Dror",
+   "Ron O."
+  ],
+  [
+   "Shaw",
+   "David E."
+  ]
+ ],
+ "type": "proceedings-article",
+ "publisher": "ACM",
+ "url": "https://doi.org/10.1145/2063384.2063405"
+}

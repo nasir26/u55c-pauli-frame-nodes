@@ -1,0 +1,31 @@
+{
+ "source": "crossref",
+ "doi": "10.1063/1.1499754",
+ "title": "Topological quantum memory",
+ "venue": "Journal of Mathematical Physics",
+ "volume": "43",
+ "issue": "9",
+ "pages": "4452-4505",
+ "year": 2002,
+ "authors": [
+  [
+   "Dennis",
+   "Eric"
+  ],
+  [
+   "Kitaev",
+   "Alexei"
+  ],
+  [
+   "Landahl",
+   "Andrew"
+  ],
+  [
+   "Preskill",
+   "John"
+  ]
+ ],
+ "type": "journal-article",
+ "publisher": "AIP Publishing",
+ "url": "https://doi.org/10.1063/1.1499754"
+}

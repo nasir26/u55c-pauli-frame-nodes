@@ -1,0 +1,31 @@
+{
+ "source": "crossref",
+ "doi": "10.1109/tqe.2024.3467271",
+ "title": "FPGA-Based Distributed Union-Find Decoder for Surface Codes",
+ "venue": "IEEE Transactions on Quantum Engineering",
+ "volume": "5",
+ "issue": null,
+ "pages": "1-18",
+ "year": 2024,
+ "authors": [
+  [
+   "Liyanage",
+   "Namitha"
+  ],
+  [
+   "Wu",
+   "Yue"
+  ],
+  [
+   "Tagare",
+   "Siona"
+  ],
+  [
+   "Zhong",
+   "Lin"
+  ]
+ ],
+ "type": "journal-article",
+ "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+ "url": "https://doi.org/10.1109/tqe.2024.3467271"
+}

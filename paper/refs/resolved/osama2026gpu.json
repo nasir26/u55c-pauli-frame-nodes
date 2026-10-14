@@ -1,0 +1,27 @@
+{
+ "source": "crossref",
+ "doi": "10.22331/q-2026-10-01-2225",
+ "title": "GPU-Accelerated Quantum Simulation of Stabilizer Circuits",
+ "venue": "Quantum",
+ "volume": "10",
+ "issue": null,
+ "pages": "2225",
+ "year": 2026,
+ "authors": [
+  [
+   "Osama",
+   "Muhammad"
+  ],
+  [
+   "Thanos",
+   "Dimitrios"
+  ],
+  [
+   "Laarman",
+   "Alfons"
+  ]
+ ],
+ "type": "journal-article",
+ "publisher": "Verein zur Forderung des Open Access Publizierens in den Quantenwissenschaften",
+ "url": "https://doi.org/10.22331/q-2026-10-01-2225"
+}

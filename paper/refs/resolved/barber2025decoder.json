@@ -1,0 +1,67 @@
+{
+ "source": "crossref",
+ "doi": "10.1038/s41928-024-01319-5",
+ "title": "A real-time, scalable, fast and resource-efficient decoder for a quantum computer",
+ "venue": "Nature Electronics",
+ "volume": "8",
+ "issue": "1",
+ "pages": "84-91",
+ "year": 2025,
+ "authors": [
+  [
+   "Barber",
+   "Ben"
+  ],
+  [
+   "Barnes",
+   "Kenton M."
+  ],
+  [
+   "Bialas",
+   "Tomasz"
+  ],
+  [
+   "Bu\u011fdayc\u0131",
+   "Okan"
+  ],
+  [
+   "Campbell",
+   "Earl T."
+  ],
+  [
+   "Gillespie",
+   "Neil I."
+  ],
+  [
+   "Johar",
+   "Kauser"
+  ],
+  [
+   "Rajan",
+   "Ram"
+  ],
+  [
+   "Richardson",
+   "Adam W."
+  ],
+  [
+   "Skoric",
+   "Luka"
+  ],
+  [
+   "Topal",
+   "Canberk"
+  ],
+  [
+   "Turner",
+   "Mark L."
+  ],
+  [
+   "Ziad",
+   "Abbas B."
+  ]
+ ],
+ "type": "journal-article",
+ "publisher": "Springer Science and Business Media LLC",
+ "url": "https://doi.org/10.1038/s41928-024-01319-5"
+}

@@ -1,0 +1,27 @@
+{
+ "source": "crossref",
+ "doi": "10.1145/3503222.3507707",
+ "title": "LILLIPUT: a lightweight low-latency lookup-table decoder for near-term Quantum error correction",
+ "venue": "Proceedings of the 27th ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
+ "volume": null,
+ "issue": null,
+ "pages": "541-553",
+ "year": 2022,
+ "authors": [
+  [
+   "Das",
+   "Poulami"
+  ],
+  [
+   "Locharla",
+   "Aditya"
+  ],
+  [
+   "Jones",
+   "Cody"
+  ]
+ ],
+ "type": "proceedings-article",
+ "publisher": "ACM",
+ "url": "https://doi.org/10.1145/3503222.3507707"
+}
