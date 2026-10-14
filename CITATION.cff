@@ -1,0 +1,60 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite the manuscript below, and the Stim and Sparse Blossom papers for the
+  algorithms the sampler reimplements and is validated against.
+title: "Pauli frame sampling on four FPGA nodes: a pipelined stabilizer circuit sampler on Alveo U55C accelerators"
+type: software
+authors:
+  - family-names: Ali
+    given-names: Nasir
+    email: nasirali2607@gmail.com
+    affiliation: "Centre for Development of Advanced Computing (C-DAC), Noida, India"
+repository-code: "https://github.com/nasir26/u55c-pauli-frame-nodes"
+license: Apache-2.0
+keywords:
+  - FPGA
+  - quantum error correction
+  - stabilizer circuit simulation
+  - Pauli frame
+  - multi FPGA
+  - Alveo U55C
+preferred-citation:
+  type: article
+  title: >-
+    Pauli Frame Sampling on Four FPGA Nodes: A Pipelined Stabilizer Circuit Sampler for Quantum Error Correction on
+    Alveo U55C Accelerators
+  authors:
+    - family-names: Ali
+      given-names: Nasir
+      affiliation: "Centre for Development of Advanced Computing (C-DAC), Noida, India"
+  year: 2026
+references:
+  - type: article
+    title: "Stim: a fast stabilizer circuit simulator"
+    authors:
+      - family-names: Gidney
+        given-names: Craig
+    journal: Quantum
+    volume: 5
+    start: 497
+    year: 2021
+    doi: 10.22331/q-2021-07-06-497
+  - type: article
+    title: "Sparse Blossom: correcting a million errors per core second with minimum-weight matching"
+    authors:
+      - family-names: Higgott
+        given-names: Oscar
+      - family-names: Gidney
+        given-names: Craig
+    journal: Quantum
+    volume: 9
+    start: 1600
+    year: 2025
+    doi: 10.22331/q-2025-01-20-1600
+  - type: article
+    title: "Multi-FPGA Quantum Circuit Simulation: A Distributed Statevector Architecture on Four Xilinx Alveo U55C Accelerators"
+    authors:
+      - family-names: Ali
+        given-names: Nasir
+    year: 2026
+    doi: 10.21203/rs.3.rs-10128153/v1
