@@ -1,0 +1,115 @@
+{
+ "start": "2026-10-14 11:47:13",
+ "stim": "1.13.0",
+ "pymatching": "2.4.0",
+ "xclbin_sha256": "8cb95f24f38cdb8456cc2407460d3bbdf54f4a6ca893e2a185d826c091eb6ebc",
+ "device": 0,
+ "tier4": [
+  {
+   "circuit": "repetition_code_d3",
+   "fpga_shots": 10223616,
+   "stim_shots": 10000000,
+   "max_abs_z": 1.4278315668073818,
+   "passed": true
+  },
+  {
+   "circuit": "surface_code_d3",
+   "fpga_shots": 10223616,
+   "stim_shots": 10000000,
+   "max_abs_z": 3.124694580777746,
+   "passed": true
+  },
+  {
+   "circuit": "surface_code_d5",
+   "fpga_shots": 10223616,
+   "stim_shots": 10000000,
+   "max_abs_z": 2.7395739493508797,
+   "passed": true
+  }
+ ],
+ "tier5": [
+  {
+   "distance": 3,
+   "p": 0.001,
+   "shots": 1048576,
+   "fpga_logical_errors": 813,
+   "stim_logical_errors": 811,
+   "z": 0.04964839387119177,
+   "passed": true
+  },
+  {
+   "distance": 3,
+   "p": 0.003,
+   "shots": 1048576,
+   "fpga_logical_errors": 6835,
+   "stim_logical_errors": 6937,
+   "z": -0.8720319032362555,
+   "passed": true
+  },
+  {
+   "distance": 3,
+   "p": 0.01,
+   "shots": 1048576,
+   "fpga_logical_errors": 62277,
+   "stim_logical_errors": 61946,
+   "z": 0.9682471187908241,
+   "passed": true
+  },
+  {
+   "distance": 5,
+   "p": 0.001,
+   "shots": 1048576,
+   "fpga_logical_errors": 147,
+   "stim_logical_errors": 144,
+   "z": 0.17587531714696214,
+   "passed": true
+  },
+  {
+   "distance": 5,
+   "p": 0.003,
+   "shots": 1048576,
+   "fpga_logical_errors": 3502,
+   "stim_logical_errors": 3446,
+   "z": 0.6729437118633805,
+   "passed": true
+  },
+  {
+   "distance": 5,
+   "p": 0.01,
+   "shots": 1048576,
+   "fpga_logical_errors": 87444,
+   "stim_logical_errors": 87841,
+   "z": -0.990538636099324,
+   "passed": true
+  },
+  {
+   "distance": 7,
+   "p": 0.001,
+   "shots": 1048576,
+   "fpga_logical_errors": 17,
+   "stim_logical_errors": 24,
+   "z": -1.093227019743414,
+   "passed": true
+  },
+  {
+   "distance": 7,
+   "p": 0.003,
+   "shots": 1048576,
+   "fpga_logical_errors": 1537,
+   "stim_logical_errors": 1607,
+   "z": -1.2493455019290378,
+   "passed": true
+  },
+  {
+   "distance": 7,
+   "p": 0.01,
+   "shots": 1048576,
+   "fpga_logical_errors": 108407,
+   "stim_logical_errors": 108236,
+   "z": 0.3879725740585806,
+   "passed": true
+  }
+ ],
+ "end": "2026-10-14 11:49:24",
+ "passed": true
+}
