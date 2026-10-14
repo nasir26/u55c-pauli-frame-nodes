@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# FPGA build products: bitstreams, kernel objects, Vivado and HLS projects (not stored; see README "Building")
+*.xclbin
+*.xo
+*.xsa
+_x/
+.Xil/
+.ipcache/
+*.jou
+build/sw_emu/
+build/hw_emu/
+build/hw/
+build/batch/*/_x/
+build/batch/xrt_batch
+kernel/hls/*_hls/
+kernel/hls/test_vectors/
+kernel/batch/hls/stim_batch_sampler_hls/
+kernel/batch/hls/test_vectors/
+
+# LaTeX build products
+paper/build/
+paper/submission/
+*.aux
+*.blg
+*.fls
+*.fdb_latexmk
+*.out
+*.synctex.gz

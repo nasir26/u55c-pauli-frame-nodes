@@ -1,0 +1,28 @@
+name: ci
+
+# Runs entirely on CPU, no FPGA/Vitis/card required -- deliberate, see
+# README.md "Repository layout" / softmodel/. Covers:
+#   - Tiers 1, 3, 4: soft model vs. upstream Stim (test_softmodel_validation.py)
+#   - Tier 2: kernel C-sim vs. soft model (test_kernel_tier2.py) -- the
+#     kernel compiles with plain g++ against kernel/ap_uint_shim.hpp
+#     instead of Xilinx's ap_int.h, which is what makes this possible
+#     without a Vitis install; g++ ships on ubuntu-latest already.
+#   - generated-header staleness check (test_generated_headers_up_to_date.py)
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  soft-model-vs-stim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: g++ --version
+      - run: pytest -v

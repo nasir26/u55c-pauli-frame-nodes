@@ -1,0 +1,56 @@
+stim-u55c
+Copyright 2026 Nasir Ali, C-DAC Noida
+
+This product includes software developed independently but interoperates
+with, and reimplements algorithms first described and published by, the
+following third-party open-source projects. Neither project's source code
+is vendored into this repository; both are used as external dependencies
+(pip / CMake FetchContent) and as the reference implementations this
+project validates against.
+
+--------------------------------------------------------------------------
+Stim
+--------------------------------------------------------------------------
+Copyright the Stim authors.
+Homepage:   https://github.com/quantumlib/Stim
+License:    Apache License, Version 2.0
+            https://github.com/quantumlib/Stim/blob/main/LICENSE
+
+Primary author: Craig Gidney.
+
+Reference:
+  Craig Gidney, "Stim: a fast stabilizer circuit simulator",
+  Quantum 5, 497 (2021). https://doi.org/10.22331/q-2021-07-06-497
+
+The Pauli frame simulation algorithm (Section 3), the vectorized-frame
+gate representation (Section 5.1), and the detector sampling reduction
+(Section 5.6) described in the paper above are reimplemented in this
+repository's kernel/ and softmodel/ directories as an FPGA-targeted,
+from-scratch HLS/C++ implementation. No Stim source code is copied.
+Stim itself remains the upstream reference sampler and DEM generator
+used throughout this project's validation harness (see tests/).
+
+--------------------------------------------------------------------------
+PyMatching
+--------------------------------------------------------------------------
+Copyright the PyMatching authors.
+Homepage:   https://github.com/oscarhiggott/PyMatching
+License:    Apache License, Version 2.0
+            https://github.com/oscarhiggott/PyMatching/blob/master/LICENSE
+
+Primary authors: Oscar Higgott and Craig Gidney.
+
+Reference:
+  Oscar Higgott and Craig Gidney, "Sparse Blossom: correcting a million
+  errors per core second with minimum-weight matching",
+  arXiv:2303.15933.
+
+PyMatching is used unmodified, via pip, as a CPU decoder and correctness
+oracle (see docs/ and Section 8 of the original project brief). No
+PyMatching source code is vendored or reimplemented in this repository.
+
+--------------------------------------------------------------------------
+
+This NOTICE file is provided for informational purposes only and does not
+modify the Apache License, Version 2.0 under which this repository
+(stim-u55c) is distributed. See LICENSE for the full license text.
