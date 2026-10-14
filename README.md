@@ -1,5 +1,7 @@
 # Pauli frame sampling on four FPGA nodes (Alveo U55C)
 
+[![tests](https://github.com/nasir26/u55c-pauli-frame-nodes/actions/workflows/ci.yml/badge.svg)](https://github.com/nasir26/u55c-pauli-frame-nodes/actions/workflows/ci.yml)
+
 A sampler of detector and observable outcomes of noisy stabilizer circuits, the workload behind threshold estimates
 and decoder benchmarks in quantum error correction, implemented as a Vitis HLS kernel for the AMD Alveo U55C and run
 on four cards in one host that are treated as independent nodes. It produces the same quantity as the detector
