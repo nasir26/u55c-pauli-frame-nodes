@@ -1,0 +1,313 @@
+Autocomplete enabled for the xbutil command
+Autocomplete enabled for the xbmgmt command
+XILINX_XRT        : /opt/xilinx/xrt
+PATH              : /opt/xilinx/xrt/bin:/tools/Xilinx/Vitis_HLS/2023.2/bin:/tools/Xilinx/Vivado/2023.2/bin:/tools/Xilinx/Model_Composer/2023.2/bin:/tools/Xilinx/Vitis/2023.2/bin:/tools/Xilinx/Vitis/2023.2/gnu/microblaze/lin/bin:/tools/Xilinx/Vitis/2023.2/gnu/microblaze/linux_toolchain/lin64_le/bin:/tools/Xilinx/Vitis/2023.2/gnu/aarch32/lin/gcc-arm-linux-gnueabi/bin:/tools/Xilinx/Vitis/2023.2/gnu/aarch32/lin/gcc-arm-none-eabi/bin:/tools/Xilinx/Vitis/2023.2/gnu/aarch64/lin/aarch64-linux/bin:/tools/Xilinx/Vitis/2023.2/gnu/aarch64/lin/aarch64-none/bin:/tools/Xilinx/Vitis/2023.2/gnu/armr5/lin/gcc-arm-none-eabi/bin:/tools/Xilinx/Vitis/2023.2/tps/lnx64/cmake-3.3.2/bin:/tools/Xilinx/Vitis/2023.2/aietools/bin:/tools/Xilinx/Vitis/2023.2/gnu/riscv/lin/riscv64-unknown-elf/bin:/tools/Xilinx/DocNav:<HOME>/.vscode-server/cli/servers/Stable-2a59476c9bfcb90b3ddc372c36762471b7dfad1c/server/bin/remote-cli:<HOME>/yes/bin:<HOME>/yes/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+LD_LIBRARY_PATH   : /opt/xilinx/xrt/lib
+PYTHONPATH        : /opt/xilinx/xrt/python
+== [hw] v++ compile at 300 MHz ==
+Option Map File Used: '/tools/Xilinx/Vitis/2023.2/data/vitis/vpp/optMap.xml'
+
+****** v++ v2023.2 (64-bit)
+  **** SW Build 4026344 on 2023-10-11-15:42:10
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+INFO: [v++ 60-1306] Additional information associated with this v++ compile can be found at:
+	Reports: <REPO>/build/batch/hw/_x/reports/stim_batch_sampler
+	Log files: <REPO>/build/batch/hw/_x/logs/stim_batch_sampler
+Running Dispatch Server on port: 33925
+INFO: [v++ 60-1548] Creating build summary session with primary output <REPO>/build/batch/hw/stim_batch_sampler.xo.compile_summary, at Tue Oct 13 09:30:26 2026
+INFO: [v++ 60-1315] Creating rulecheck session with output '<REPO>/build/batch/hw/_x/reports/stim_batch_sampler/v++_compile_stim_batch_sampler_guidance.html', at Tue Oct 13 09:30:26 2026
+INFO: [v++ 60-895]   Target platform: /opt/xilinx/platforms/xilinx_u55c_gen3x16_xdma_3_202210_1/xilinx_u55c_gen3x16_xdma_3_202210_1.xpfm
+INFO: [v++ 60-1578]   This platform contains Xilinx Shell Archive '/opt/xilinx/platforms/xilinx_u55c_gen3x16_xdma_3_202210_1/hw/hw.xsa'
+INFO: [v++ 74-78] Compiler Version string: 2023.2
+INFO: [v++ 60-585] Compiling for hardware target
+INFO: [v++ 60-423]   Target device: xilinx_u55c_gen3x16_xdma_3_202210_1
+WARNING: [v++ 60-889] User-specified kernel frequency for ID 0 is the same as the default frequency 300 MHz, so it will be ignored
+INFO: [v++ 60-242] Creating kernel: 'stim_batch_sampler'
+
+===>The following messages were generated while  performing high-level synthesis for kernel: stim_batch_sampler Log file: <REPO>/build/batch/hw/_x/stim_batch_sampler/stim_batch_sampler/vitis_hls.log :
+INFO: [v++ 204-61] Pipelining loop 'LOAD_PROG'.
+INFO: [v++ 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LOAD_PROG'
+INFO: [v++ 204-61] Pipelining loop 'LOAD_FOLD'.
+INFO: [v++ 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 74, loop 'LOAD_FOLD'
+INFO: [v++ 204-61] Pipelining loop 'NOISE'.
+INFO: [v++ 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 41, loop 'NOISE'
+INFO: [v++ 204-61] Pipelining loop 'FRAME'.
+INFO: [v++ 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'FRAME'
+INFO: [v++ 204-61] Pipelining loop 'COLLECT'.
+INFO: [v++ 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'COLLECT'
+INFO: [v++ 204-61] Pipelining loop 'FOLD'.
+INFO: [v++ 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'FOLD'
+INFO: [v++ 204-61] Pipelining loop 'STORE'.
+INFO: [v++ 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'STORE'
+INFO: [v++ 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [v++ 200-789] **** Estimated Fmax: 411.00 MHz
+INFO: [v++ 60-594] Finished kernel compilation
+INFO: [v++ 60-244] Generating system estimate report...
+INFO: [v++ 60-1092] Generated system estimate report: <REPO>/build/batch/hw/_x/reports/stim_batch_sampler/system_estimate_stim_batch_sampler.xtxt
+INFO: [v++ 60-586] Created stim_batch_sampler.xo
+INFO: [v++ 60-2343] Use the vitis_analyzer tool to visualize and navigate the relevant reports. Run the following command. 
+    vitis_analyzer <REPO>/build/batch/hw/stim_batch_sampler.xo.compile_summary 
+INFO: [v++ 60-791] Total elapsed time: 0h 1m 40s
+INFO: [v++ 60-1653] Closing dispatch client.
+== [hw] v++ link ==
+Option Map File Used: '/tools/Xilinx/Vitis/2023.2/data/vitis/vpp/optMap.xml'
+
+****** v++ v2023.2 (64-bit)
+  **** SW Build 4026344 on 2023-10-11-15:42:10
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+INFO: [v++ 60-1306] Additional information associated with this v++ link can be found at:
+	Reports: <REPO>/build/batch/hw/_x/reports/link
+	Log files: <REPO>/build/batch/hw/_x/logs/link
+Running Dispatch Server on port: 35795
+INFO: [v++ 60-1548] Creating build summary session with primary output <REPO>/build/batch/hw/stim_batch_sampler.xclbin.link_summary, at Tue Oct 13 09:32:08 2026
+INFO: [v++ 60-1315] Creating rulecheck session with output '<REPO>/build/batch/hw/_x/reports/link/v++_link_stim_batch_sampler_guidance.html', at Tue Oct 13 09:32:08 2026
+INFO: [v++ 60-895]   Target platform: /opt/xilinx/platforms/xilinx_u55c_gen3x16_xdma_3_202210_1/xilinx_u55c_gen3x16_xdma_3_202210_1.xpfm
+INFO: [v++ 60-1578]   This platform contains Xilinx Shell Archive '/opt/xilinx/platforms/xilinx_u55c_gen3x16_xdma_3_202210_1/hw/hw.xsa'
+INFO: [v++ 74-78] Compiler Version string: 2023.2
+INFO: [v++ 60-629] Linking for hardware target
+INFO: [v++ 60-423]   Target device: xilinx_u55c_gen3x16_xdma_3_202210_1
+WARNING: [v++ 60-889] User-specified kernel frequency for ID 0 is the same as the default frequency 300 MHz, so it will be ignored
+INFO: [v++ 60-1332] Run 'run_link' status: Not started
+INFO: [v++ 60-1443] [09:32:12] Run run_link: Step system_link: Started
+INFO: [v++ 60-1453] Command Line: system_link --xo <REPO>/build/batch/hw/stim_batch_sampler.xo --config <REPO>/build/batch/hw/_x/link/int/syslinkConfig.ini --xpfm /opt/xilinx/platforms/xilinx_u55c_gen3x16_xdma_3_202210_1/xilinx_u55c_gen3x16_xdma_3_202210_1.xpfm --target hw --output_dir <REPO>/build/batch/hw/_x/link/int --temp_dir <REPO>/build/batch/hw/_x/link/sys_link
+INFO: [v++ 60-1454] Run Directory: <REPO>/build/batch/hw/_x/link/run_link
+INFO: [SYSTEM_LINK 82-70] Extracting xo v3 file <REPO>/build/batch/hw/stim_batch_sampler.xo
+INFO: [SYSTEM_LINK 82-53] Creating IP database <REPO>/build/batch/hw/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml
+INFO: [SYSTEM_LINK 82-38] [09:32:15] build_xd_ip_db started: /tools/Xilinx/Vitis/2023.2/bin/build_xd_ip_db -ip_search 0  -sds-pf <REPO>/build/batch/hw/_x/link/sys_link/hw.hpfm -clkid 0 -ip <REPO>/build/batch/hw/_x/link/sys_link/iprepo/xilinx_com_hls_stim_batch_sampler_1_0,stim_batch_sampler -o <REPO>/build/batch/hw/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml
+INFO: [SYSTEM_LINK 82-37] [09:32:19] build_xd_ip_db finished successfully
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 458.445 ; gain = 0.000 ; free physical = 408468 ; free virtual = 989629
+INFO: [SYSTEM_LINK 82-51] Create system connectivity graph
+INFO: [SYSTEM_LINK 82-102] Applying explicit connections to the system connectivity graph: <REPO>/build/batch/hw/_x/link/sys_link/cfgraph/cfgen_cfgraph.xml
+INFO: [SYSTEM_LINK 82-38] [09:32:19] cfgen started: /tools/Xilinx/Vitis/2023.2/bin/cfgen  -nk stim_batch_sampler:2:batch_1,batch_2 -slr batch_1:SLR0 -slr batch_2:SLR1 -sp batch_1.prog:HBM[0] -sp batch_1.fold:HBM[0] -sp batch_1.out:HBM[1] -sp batch_2.prog:HBM[2] -sp batch_2.fold:HBM[2] -sp batch_2.out:HBM[3] -dpa_mem_offload false -dmclkid 0 -r <REPO>/build/batch/hw/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml -o <REPO>/build/batch/hw/_x/link/sys_link/cfgraph/cfgen_cfgraph.xml
+INFO: [CFGEN 83-0] Kernel Specs: 
+INFO: [CFGEN 83-0]   kernel: stim_batch_sampler, num: 2  {batch_1 batch_2}
+INFO: [CFGEN 83-0] Port Specs: 
+INFO: [CFGEN 83-0]   kernel: batch_1, k_port: prog, sptag: HBM[0]
+INFO: [CFGEN 83-0]   kernel: batch_1, k_port: fold, sptag: HBM[0]
+INFO: [CFGEN 83-0]   kernel: batch_1, k_port: out, sptag: HBM[1]
+INFO: [CFGEN 83-0]   kernel: batch_2, k_port: prog, sptag: HBM[2]
+INFO: [CFGEN 83-0]   kernel: batch_2, k_port: fold, sptag: HBM[2]
+INFO: [CFGEN 83-0]   kernel: batch_2, k_port: out, sptag: HBM[3]
+INFO: [CFGEN 83-0] SLR Specs: 
+INFO: [CFGEN 83-0]   instance: batch_1, SLR: SLR0
+INFO: [CFGEN 83-0]   instance: batch_2, SLR: SLR1
+INFO: [SYSTEM_LINK 82-37] [09:32:28] cfgen finished successfully
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 458.445 ; gain = 0.000 ; free physical = 408484 ; free virtual = 989644
+INFO: [SYSTEM_LINK 82-52] Create top-level block diagram
+INFO: [SYSTEM_LINK 82-38] [09:32:28] cf2bd started: /tools/Xilinx/Vitis/2023.2/bin/cf2bd  --linux --trace_buffer 1024 --input_file <REPO>/build/batch/hw/_x/link/sys_link/cfgraph/cfgen_cfgraph.xml --ip_db <REPO>/build/batch/hw/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml --cf_name dr --working_dir <REPO>/build/batch/hw/_x/link/sys_link/_sysl/.xsd --temp_dir <REPO>/build/batch/hw/_x/link/sys_link --output_dir <REPO>/build/batch/hw/_x/link/int --target_bd ulp.bd
+INFO: [CF2BD 82-31] Launching cf2xd: cf2xd -linux -trace-buffer 1024 -i <REPO>/build/batch/hw/_x/link/sys_link/cfgraph/cfgen_cfgraph.xml -r <REPO>/build/batch/hw/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml -o dr.xml
+INFO: [CF2BD 82-28] cf2xd finished successfully
+INFO: [CF2BD 82-31] Launching cf_xsd: cf_xsd -disable-address-gen -bd ulp.bd -dn dr -dp <REPO>/build/batch/hw/_x/link/sys_link/_sysl/.xsd
+INFO: [CF2BD 82-28] cf_xsd finished successfully
+INFO: [SYSTEM_LINK 82-37] [09:32:33] cf2bd finished successfully
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 458.445 ; gain = 0.000 ; free physical = 408481 ; free virtual = 989646
+INFO: [v++ 60-1441] [09:32:33] Run run_link: Step system_link: Completed
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 489.422 ; gain = 0.000 ; free physical = 408614 ; free virtual = 989709
+INFO: [v++ 60-1443] [09:32:33] Run run_link: Step cf2sw: Started
+INFO: [v++ 60-1453] Command Line: cf2sw -sdsl <REPO>/build/batch/hw/_x/link/int/sdsl.dat -rtd <REPO>/build/batch/hw/_x/link/int/cf2sw.rtd -nofilter <REPO>/build/batch/hw/_x/link/int/cf2sw_full.rtd -xclbin <REPO>/build/batch/hw/_x/link/int/xclbin_orig.xml -o <REPO>/build/batch/hw/_x/link/int/xclbin_orig.1.xml
+INFO: [v++ 60-1454] Run Directory: <REPO>/build/batch/hw/_x/link/run_link
+INFO: [v++ 60-1441] [09:32:40] Run run_link: Step cf2sw: Completed
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 489.422 ; gain = 0.000 ; free physical = 408619 ; free virtual = 989714
+INFO: [v++ 60-1443] [09:32:40] Run run_link: Step rtd2_system_diagram: Started
+INFO: [v++ 60-1453] Command Line: rtd2SystemDiagram
+INFO: [v++ 60-1454] Run Directory: <REPO>/build/batch/hw/_x/link/run_link
+INFO: [v++ 60-1441] [09:32:40] Run run_link: Step rtd2_system_diagram: Completed
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.26 . Memory (MB): peak = 489.422 ; gain = 0.000 ; free physical = 408599 ; free virtual = 989694
+INFO: [v++ 60-1443] [09:32:40] Run run_link: Step vpl: Started
+INFO: [v++ 60-1453] Command Line: vpl -t hw -f xilinx_u55c_gen3x16_xdma_3_202210_1 --kernel_frequency 300 --remote_ip_cache <REPO>/build/batch/hw/.ipcache --output_dir <REPO>/build/batch/hw/_x/link/int --log_dir <REPO>/build/batch/hw/_x/logs/link --report_dir <REPO>/build/batch/hw/_x/reports/link --config <REPO>/build/batch/hw/_x/link/int/vplConfig.ini -k <REPO>/build/batch/hw/_x/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir <REPO>/build/batch/hw/_x/link --no-info --iprepo <REPO>/build/batch/hw/_x/link/int/xo/ip_repo/xilinx_com_hls_stim_batch_sampler_1_0 --messageDb <REPO>/build/batch/hw/_x/link/run_link/vpl.pb <REPO>/build/batch/hw/_x/link/int/dr.bd.tcl
+INFO: [v++ 60-1454] Run Directory: <REPO>/build/batch/hw/_x/link/run_link
+
+****** vpl v2023.2 (64-bit)
+  **** SW Build 4026344 on 2023-10-11-15:42:10
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+INFO: [VPL 60-839] Read in kernel information from file '<REPO>/build/batch/hw/_x/link/int/kernel_info.dat'.
+INFO: [VPL 74-78] Compiler Version string: 2023.2
+INFO: [VPL 60-423]   Target device: xilinx_u55c_gen3x16_xdma_3_202210_1
+WARNING: [VPL 60-889] User-specified kernel frequency for ID 0 is the same as the default frequency 300 MHz, so it will be ignored
+INFO: [VPL 60-1032] Extracting hardware platform to <REPO>/build/batch/hw/_x/link/vivado/vpl/.local/hw_platform
+[09:32:53] Run vpl: Step create_project: Started
+Creating Vivado project.
+[09:33:00] Run vpl: Step create_project: Completed
+[09:33:00] Run vpl: Step create_bd: Started
+[09:33:29] Run vpl: Step create_bd: Completed
+[09:33:29] Run vpl: Step update_bd: Started
+[09:33:30] Run vpl: Step update_bd: Completed
+[09:33:30] Run vpl: Step generate_target: Started
+[09:34:44] Run vpl: Step generate_target: Completed
+[09:34:44] Run vpl: Step config_hw_runs: Started
+[09:35:51] Run vpl: Step config_hw_runs: Completed
+[09:35:51] Run vpl: Step synth: Started
+[09:36:22] Block-level synthesis in progress, 0 of 149 jobs complete, 8 jobs running.
+[09:36:53] Block-level synthesis in progress, 0 of 149 jobs complete, 8 jobs running.
+[09:37:23] Block-level synthesis in progress, 10 of 149 jobs complete, 5 jobs running.
+[09:37:53] Block-level synthesis in progress, 10 of 149 jobs complete, 8 jobs running.
+[09:38:23] Block-level synthesis in progress, 14 of 149 jobs complete, 6 jobs running.
+[09:38:53] Block-level synthesis in progress, 19 of 149 jobs complete, 8 jobs running.
+[09:39:23] Block-level synthesis in progress, 19 of 149 jobs complete, 8 jobs running.
+[09:39:54] Block-level synthesis in progress, 28 of 149 jobs complete, 6 jobs running.
+[09:40:24] Block-level synthesis in progress, 29 of 149 jobs complete, 8 jobs running.
+[09:40:54] Block-level synthesis in progress, 34 of 149 jobs complete, 6 jobs running.
+[09:41:25] Block-level synthesis in progress, 34 of 149 jobs complete, 8 jobs running.
+[09:41:55] Block-level synthesis in progress, 39 of 149 jobs complete, 7 jobs running.
+[09:42:25] Block-level synthesis in progress, 40 of 149 jobs complete, 8 jobs running.
+[09:42:56] Block-level synthesis in progress, 45 of 149 jobs complete, 5 jobs running.
+[09:43:26] Block-level synthesis in progress, 50 of 149 jobs complete, 6 jobs running.
+[09:43:57] Block-level synthesis in progress, 57 of 149 jobs complete, 8 jobs running.
+[09:44:27] Block-level synthesis in progress, 67 of 149 jobs complete, 8 jobs running.
+[09:44:57] Block-level synthesis in progress, 71 of 149 jobs complete, 7 jobs running.
+[09:45:28] Block-level synthesis in progress, 74 of 149 jobs complete, 7 jobs running.
+[09:45:58] Block-level synthesis in progress, 77 of 149 jobs complete, 7 jobs running.
+[09:46:29] Block-level synthesis in progress, 81 of 149 jobs complete, 7 jobs running.
+[09:46:59] Block-level synthesis in progress, 85 of 149 jobs complete, 8 jobs running.
+[09:47:29] Block-level synthesis in progress, 87 of 149 jobs complete, 7 jobs running.
+[09:48:00] Block-level synthesis in progress, 90 of 149 jobs complete, 8 jobs running.
+[09:48:30] Block-level synthesis in progress, 92 of 149 jobs complete, 6 jobs running.
+[09:49:01] Block-level synthesis in progress, 104 of 149 jobs complete, 4 jobs running.
+[09:49:31] Block-level synthesis in progress, 116 of 149 jobs complete, 6 jobs running.
+[09:50:02] Block-level synthesis in progress, 119 of 149 jobs complete, 8 jobs running.
+[09:50:32] Block-level synthesis in progress, 119 of 149 jobs complete, 8 jobs running.
+[09:51:03] Block-level synthesis in progress, 124 of 149 jobs complete, 7 jobs running.
+[09:51:33] Block-level synthesis in progress, 125 of 149 jobs complete, 8 jobs running.
+[09:52:04] Block-level synthesis in progress, 132 of 149 jobs complete, 5 jobs running.
+[09:52:34] Block-level synthesis in progress, 137 of 149 jobs complete, 8 jobs running.
+[09:53:05] Block-level synthesis in progress, 140 of 149 jobs complete, 6 jobs running.
+[09:53:36] Block-level synthesis in progress, 144 of 149 jobs complete, 3 jobs running.
+[09:54:06] Block-level synthesis in progress, 146 of 149 jobs complete, 2 jobs running.
+[09:54:37] Block-level synthesis in progress, 147 of 149 jobs complete, 1 job running.
+[09:55:07] Block-level synthesis in progress, 148 of 149 jobs complete, 1 job running.
+[09:55:38] Block-level synthesis in progress, 148 of 149 jobs complete, 1 job running.
+[09:56:08] Top-level synthesis in progress.
+[09:56:39] Top-level synthesis in progress.
+[09:57:09] Top-level synthesis in progress.
+[09:57:19] Run vpl: Step synth: Completed
+[09:57:19] Run vpl: Step impl: Started
+[10:15:41] Finished 2nd of 6 tasks (FPGA linking synthesized kernels to platform). Elapsed time: 00h 42m 58s 
+
+[10:15:41] Starting logic optimization..
+[10:16:12] Phase 1 Initialization
+[10:16:12] Phase 1.1 Core Generation And Design Setup
+[10:17:13] Phase 1.2 Setup Constraints And Sort Netlist
+[10:17:13] Phase 2 Timer Update And Timing Data Collection
+[10:17:13] Phase 2.1 Timer Update
+[10:18:14] Phase 2.2 Timing Data Collection
+[10:18:14] Phase 3 Retarget
+[10:18:45] Phase 4 Constant propagation
+[10:19:15] Phase 5 Sweep
+[10:20:47] Phase 6 BUFG optimization
+[10:21:18] Phase 7 Shift Register Optimization
+[10:21:18] Phase 8 Post Processing Netlist
+[10:22:19] Phase 9 Finalization
+[10:22:19] Phase 9.1 Finalizing Design Cores and Updating Shapes
+[10:22:50] Phase 9.2 Verifying Netlist Connectivity
+[10:23:20] Finished 3rd of 6 tasks (FPGA logic optimization). Elapsed time: 00h 07m 39s 
+
+[10:23:20] Starting logic placement..
+[10:23:51] Phase 1 Placer Initialization
+[10:23:51] Phase 1.1 Placer Initialization Netlist Sorting
+[10:27:25] Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+[10:29:28] Phase 1.3 Build Placer Netlist Model
+[10:34:34] Phase 1.4 Constrain Clocks/Macros
+[10:35:05] Phase 2 Global Placement
+[10:35:05] Phase 2.1 Floorplanning
+[10:36:06] Phase 2.1.1 Partition Driven Placement
+[10:36:06] Phase 2.1.1.1 PBP: Partition Driven Placement
+[10:37:38] Phase 2.1.1.2 PBP: Clock Region Placement
+[10:38:39] Phase 2.1.1.3 PBP: Discrete Incremental
+[10:39:10] Phase 2.1.1.4 PBP: Compute Congestion
+[10:39:41] Phase 2.1.1.5 PBP: Macro Placement
+[10:40:12] Phase 2.1.1.6 PBP: UpdateTiming
+[10:41:13] Phase 2.1.1.7 PBP: Add part constraints
+[10:41:44] Phase 2.2 Physical Synthesis After Floorplan
+[10:41:44] Phase 2.3 Update Timing before SLR Path Opt
+[10:42:15] Phase 2.4 Post-Processing in Floorplanning
+[10:42:15] Phase 2.5 Global Placement Core
+[10:55:04] Phase 2.5.1 UpdateTiming Before Physical Synthesis
+[10:55:34] Phase 2.5.2 Physical Synthesis In Placer
+[11:02:45] Phase 3 Detail Placement
+[11:02:45] Phase 3.1 Commit Multi Column Macros
+[11:02:45] Phase 3.2 Commit Most Macros & LUTRAMs
+[11:05:49] Phase 3.3 Small Shape DP
+[11:05:49] Phase 3.3.1 Small Shape Clustering
+[11:06:20] Phase 3.3.2 Slice Area Swap
+[11:06:20] Phase 3.3.2.1 Slice Area Swap Initial
+[11:08:23] Phase 3.4 Place Remaining
+[11:08:54] Phase 3.5 Re-assign LUT pins
+[11:09:25] Phase 3.6 Pipeline Register Optimization
+[11:09:55] Phase 3.7 Fast Optimization
+[11:11:59] Phase 4 Post Placement Optimization and Clean-Up
+[11:11:59] Phase 4.1 Post Commit Optimization
+[11:16:05] Phase 4.1.1 Post Placement Optimization
+[11:16:05] Phase 4.1.1.1 BUFG Insertion
+[11:16:05] Phase 1 Physical Synthesis Initialization
+[11:18:08] Phase 4.1.1.2 BUFG Replication
+[11:18:38] Phase 4.1.1.3 Post Placement Timing Optimization
+[11:27:21] Phase 4.1.1.4 Replication
+[11:29:24] Phase 4.2 Post Placement Cleanup
+[11:29:55] Phase 4.3 Placer Reporting
+[11:29:55] Phase 4.3.1 Print Estimated Congestion
+[11:30:26] Phase 4.4 Final Placement Cleanup
+[12:25:18] Finished 4th of 6 tasks (FPGA logic placement). Elapsed time: 02h 01m 58s 
+
+[12:25:18] Starting logic routing..
+[12:26:20] Phase 1 Build RT Design
+[12:29:25] Phase 2 Router Initialization
+[12:29:25] Phase 2.1 Fix Topology Constraints
+[12:29:25] Phase 2.2 Pre Route Cleanup
+[12:29:25] Phase 2.3 Global Clock Net Routing
+[12:30:26] Phase 2.4 Update Timing
+[12:35:34] Phase 2.5 Update Timing for Bus Skew
+[12:35:34] Phase 2.5.1 Update Timing
+[12:37:06] Phase 3 Initial Routing
+[12:37:06] Phase 3.1 Global Routing
+[12:37:06] Phase 3.2 Initial Net Routing
+[12:39:40] Phase 3.3 Update Timing
+[12:42:45] Phase 3.4 Initial Net Routing
+[12:44:17] Phase 3.5 Update Timing
+[12:47:22] Phase 3.6 Initial Net Routing
+[12:48:54] Phase 3.7 Update Timing
+[12:51:59] Phase 3.8 Initial Net Routing
+[12:53:31] Phase 3.9 Update Timing
+[12:56:36] Phase 3.10 Initial Net Routing
+[12:57:38] Phase 3.11 Update Timing
+[13:01:44] Phase 4 Rip-up And Reroute
+[13:01:44] Phase 4.1 Global Iteration 0
+[13:01:44] Phase 4.1.1 Update Timing
+[13:04:49] Phase 4.2 Global Iteration 1
+[13:59:43] Phase 4.3 Global Iteration 2
+[15:08:30] Phase 5 Delay and Skew Optimization
+[15:08:30] Phase 5.1 Delay CleanUp
+[15:08:30] Phase 5.2 Clock Skew Optimization
+[15:09:01] Phase 6 Post Hold Fix
+[15:09:01] Phase 6.1 Hold Fix Iter
+[15:09:01] Phase 6.2 Additional Hold Fix
+[15:09:31] Phase 6.3 Non Free Resource Hold Fix Iter
+[15:09:31] Phase 7 Route finalize
+[15:10:02] Phase 8 Verifying routed nets
+[15:10:02] Phase 9 Depositing Routes
+[15:11:35] Phase 10 Post-Route Event Processing
+[15:15:49] Run vpl: Step impl: Failed
+[15:15:50] Run vpl: FINISHED. Run Status: impl ERROR
+
+===>The following messages were generated while processing <REPO>/build/batch/hw/_x/link/vivado/vpl/prj/prj.runs/impl_1 :
+ERROR: [VPL 18-1000] Routing results verification failed due to partially-conflicted nets (Up to first 10 of violated nets):  level0_i/ulp/batch_1/inst/control_s_axi_U/Q[22] level0_i/ulp/batch_1/inst/control_s_axi_U/Q[19] level0_i/ulp/batch_1/inst/control_s_axi_U/Q[30] level0_i/ulp/batch_1/inst/control_s_axi_U/Q[29] level0_i/ulp/batch_1/inst/control_s_axi_U/Q[31] level0_i/ulp/batch_1/inst/control_s_axi_U/Q[4] level0_i/ulp/batch_1/inst/control_s_axi_U/Q[2] level0_i/ulp/batch_1/inst/control_s_axi_U/Q[0] level0_i/ulp/batch_1/inst/control_s_axi_U/Q[15] level0_i/ulp/batch_1/inst/control_s_axi_U/Q[16] 
+
+===>The following messages were generated while  creating FPGA bitstream. Log file: <REPO>/build/batch/hw/_x/link/vivado/vpl/runme.log :
+ERROR: [VPL 12-13638] Failed runs(s) : 'impl_1'
+ERROR: [VPL 60-773] In '<REPO>/build/batch/hw/_x/link/vivado/vpl/vivado.log', caught Tcl error:  ERROR: [Common 17-39] 'wait_on_runs' failed due to earlier errors.
+WARNING: [VPL 60-732] Link warning: No monitor points found for BD automation.
+ERROR: [VPL 60-704] Integration error, Failed to complete hardware generation. The run name is 'impl_1'. An error stack with function names and arguments may be available in the 'vivado.log'.
+ERROR: [VPL 60-1328] Vpl run 'vpl' failed
+ERROR: [VPL 60-806] Failed to finish platform linker
+INFO: [v++ 60-1442] [15:15:51] Run run_link: Step vpl: Failed
+Time (s): cpu = 00:07:08 ; elapsed = 05:43:11 . Memory (MB): peak = 489.422 ; gain = 0.000 ; free physical = 400472 ; free virtual = 983773
+ERROR: [v++ 60-661] v++ link run 'run_link' failed
+ERROR: [v++ 60-626] Kernel link failed to complete
+ERROR: [v++ 60-703] Failed to finish linking
+INFO: [v++ 60-1653] Closing dispatch client.
+BUILD_EXIT 1

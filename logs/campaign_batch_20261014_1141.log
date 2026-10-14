@@ -1,0 +1,106 @@
+== 2026-10-14 11:41:16 timing: <REPO>/build/batch/hw_tf/_x/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt
+WNS 0.003 ns
+kernel clock in the xclbin: 300 MHz
+8cb95f24f38cdb8456cc2407460d3bbdf54f4a6ca893e2a185d826c091eb6ebc  <REPO>/build/batch/hw_tf/stim_batch_sampler.xclbin
+== 2026-10-14 11:41:17 check and throughput
+check repetition_code_d3   device 0 (2 instances): PASS
+check repetition_code_d3   device 1 (2 instances): PASS
+check repetition_code_d3   device 2 (2 instances): PASS
+check repetition_code_d3   device 3 (2 instances): PASS
+check surface_code_d3      device 0 (2 instances): PASS
+check surface_code_d3      device 1 (2 instances): PASS
+check surface_code_d3      device 2 (2 instances): PASS
+check surface_code_d3      device 3 (2 instances): PASS
+check surface_code_d5      device 0 (2 instances): PASS
+check surface_code_d5      device 1 (2 instances): PASS
+check surface_code_d5      device 2 (2 instances): PASS
+check surface_code_d5      device 3 (2 instances): PASS
+bench repetition_code_d3   cards 1 rep 0:      289,152,618 shots/s (per card 289,152,632)
+bench repetition_code_d3   cards 1 rep 1:      289,485,893 shots/s (per card 289,485,905)
+bench repetition_code_d3   cards 1 rep 2:      289,230,495 shots/s (per card 289,230,508)
+bench repetition_code_d3   cards 2 rep 0:      577,045,378 shots/s (per card 288,543,843, 288,522,705)
+bench repetition_code_d3   cards 2 rep 1:      577,528,979 shots/s (per card 288,832,280, 288,769,965)
+bench repetition_code_d3   cards 2 rep 2:      577,517,899 shots/s (per card 289,486,333, 288,758,988)
+bench repetition_code_d3   cards 4 rep 0:    1,155,366,309 shots/s (per card 290,675,663, 290,272,151, 289,673,014, 288,843,172)
+bench repetition_code_d3   cards 4 rep 1:    1,155,088,706 shots/s (per card 290,755,545, 289,196,625, 290,336,242, 288,775,292)
+bench repetition_code_d3   cards 4 rep 2:    1,155,604,510 shots/s (per card 290,480,896, 288,904,911, 290,063,938, 290,238,578)
+bench surface_code_d3      cards 1 rep 0:       74,062,552 shots/s (per card 74,062,555)
+bench surface_code_d3      cards 1 rep 1:       73,912,169 shots/s (per card 73,912,173)
+bench surface_code_d3      cards 1 rep 2:       73,634,851 shots/s (per card 73,634,853)
+bench surface_code_d3      cards 2 rep 0:      147,924,883 shots/s (per card 73,962,445, 74,079,138)
+bench surface_code_d3      cards 2 rep 1:      147,798,429 shots/s (per card 73,899,218, 73,936,839)
+bench surface_code_d3      cards 2 rep 2:      147,792,368 shots/s (per card 73,904,492, 73,896,771)
+bench surface_code_d3      cards 4 rep 0:      295,655,853 shots/s (per card 73,920,922, 74,074,988, 73,913,967, 74,049,247)
+bench surface_code_d3      cards 4 rep 1:      295,706,199 shots/s (per card 73,931,338, 73,926,807, 74,022,303, 74,062,641)
+bench surface_code_d3      cards 4 rep 2:      295,658,952 shots/s (per card 73,940,448, 74,010,063, 73,915,406, 74,046,480)
+bench surface_code_d5      cards 1 rep 0:       15,334,686 shots/s (per card 15,334,687)
+bench surface_code_d5      cards 1 rep 1:       15,338,965 shots/s (per card 15,338,966)
+bench surface_code_d5      cards 1 rep 2:       15,338,202 shots/s (per card 15,338,203)
+bench surface_code_d5      cards 2 rep 0:       30,689,522 shots/s (per card 15,345,439, 15,344,762)
+bench surface_code_d5      cards 2 rep 1:       30,673,452 shots/s (per card 15,337,578, 15,336,727)
+bench surface_code_d5      cards 2 rep 2:       30,687,981 shots/s (per card 15,344,674, 15,344,013)
+bench surface_code_d5      cards 4 rep 0:       61,363,562 shots/s (per card 15,341,641, 15,341,273, 15,341,930, 15,341,205)
+bench surface_code_d5      cards 4 rep 1:       61,359,029 shots/s (per card 15,341,025, 15,340,418, 15,340,960, 15,339,901)
+bench surface_code_d5      cards 4 rep 2:       61,338,298 shots/s (per card 15,335,606, 15,334,575, 15,335,168, 15,335,340)
+wrote <REPO>/bench/multicard/batch_20261014_1141.json
+== 2026-10-14 11:47:12 validation against Stim
+tier4 repetition_code_d3   FPGA 10,223,616 shots, Stim 10,000,000: max|z| 1.43 PASS
+tier4 surface_code_d3      FPGA 10,223,616 shots, Stim 10,000,000: max|z| 3.12 PASS
+tier4 surface_code_d5      FPGA 10,223,616 shots, Stim 10,000,000: max|z| 2.74 PASS
+tier5 d=3 p=0.001: FPGA 813/1048576 = 7.75e-04, Stim 811/1048576 = 7.73e-04, z +0.05 PASS
+tier5 d=3 p=0.003: FPGA 6835/1048576 = 6.52e-03, Stim 6937/1048576 = 6.62e-03, z -0.87 PASS
+tier5 d=3 p=0.01: FPGA 62277/1048576 = 5.94e-02, Stim 61946/1048576 = 5.91e-02, z +0.97 PASS
+tier5 d=5 p=0.001: FPGA 147/1048576 = 1.40e-04, Stim 144/1048576 = 1.37e-04, z +0.18 PASS
+tier5 d=5 p=0.003: FPGA 3502/1048576 = 3.34e-03, Stim 3446/1048576 = 3.29e-03, z +0.67 PASS
+tier5 d=5 p=0.01: FPGA 87444/1048576 = 8.34e-02, Stim 87841/1048576 = 8.38e-02, z -0.99 PASS
+tier5 d=7 p=0.001: FPGA 17/1048576 = 1.62e-05, Stim 24/1048576 = 2.29e-05, z -1.09 PASS
+tier5 d=7 p=0.003: FPGA 1537/1048576 = 1.47e-03, Stim 1607/1048576 = 1.53e-03, z -1.25 PASS
+tier5 d=7 p=0.01: FPGA 108407/1048576 = 1.03e-01, Stim 108236/1048576 = 1.03e-01, z +0.39 PASS
+PASS; wrote <REPO>/bench/multicard/validate_20261014_1147.json
+== 2026-10-14 11:49:24 CPU baseline (cards idle)
+repetition_code_d3     procs=   1 rep 0        5,931,053 shots/s
+repetition_code_d3     procs=   1 rep 1        6,079,652 shots/s
+repetition_code_d3     procs=   1 rep 2        5,999,732 shots/s
+repetition_code_d3     procs=  16 rep 0       62,237,238 shots/s
+repetition_code_d3     procs=  16 rep 1       60,814,996 shots/s
+repetition_code_d3     procs=  16 rep 2       60,798,566 shots/s
+repetition_code_d3     procs=  64 rep 0       84,704,275 shots/s
+repetition_code_d3     procs=  64 rep 1       84,512,812 shots/s
+repetition_code_d3     procs=  64 rep 2       87,142,888 shots/s
+repetition_code_d3     procs= 128 rep 0      100,987,950 shots/s
+repetition_code_d3     procs= 128 rep 1      109,867,182 shots/s
+repetition_code_d3     procs= 128 rep 2       98,972,083 shots/s
+repetition_code_d3     procs= 256 rep 0      151,195,427 shots/s
+repetition_code_d3     procs= 256 rep 1      140,258,256 shots/s
+repetition_code_d3     procs= 256 rep 2      139,322,180 shots/s
+surface_code_d3        procs=   1 rep 0        2,798,788 shots/s
+surface_code_d3        procs=   1 rep 1        2,869,556 shots/s
+surface_code_d3        procs=   1 rep 2        2,841,093 shots/s
+surface_code_d3        procs=  16 rep 0       35,477,082 shots/s
+surface_code_d3        procs=  16 rep 1       35,270,693 shots/s
+surface_code_d3        procs=  16 rep 2       34,758,216 shots/s
+surface_code_d3        procs=  64 rep 0       64,545,472 shots/s
+surface_code_d3        procs=  64 rep 1       65,480,163 shots/s
+surface_code_d3        procs=  64 rep 2       66,090,177 shots/s
+surface_code_d3        procs= 128 rep 0       82,295,387 shots/s
+surface_code_d3        procs= 128 rep 1       78,332,218 shots/s
+surface_code_d3        procs= 128 rep 2       76,995,676 shots/s
+surface_code_d3        procs= 256 rep 0      128,174,902 shots/s
+surface_code_d3        procs= 256 rep 1      120,604,843 shots/s
+surface_code_d3        procs= 256 rep 2      123,750,688 shots/s
+surface_code_d5        procs=   1 rep 0          721,124 shots/s
+surface_code_d5        procs=   1 rep 1          723,625 shots/s
+surface_code_d5        procs=   1 rep 2          728,221 shots/s
+surface_code_d5        procs=  16 rep 0       10,181,623 shots/s
+surface_code_d5        procs=  16 rep 1       10,556,056 shots/s
+surface_code_d5        procs=  16 rep 2       10,043,457 shots/s
+surface_code_d5        procs=  64 rep 0       25,324,120 shots/s
+surface_code_d5        procs=  64 rep 1       26,614,558 shots/s
+surface_code_d5        procs=  64 rep 2       31,690,129 shots/s
+surface_code_d5        procs= 128 rep 0       36,492,630 shots/s
+surface_code_d5        procs= 128 rep 1       34,343,973 shots/s
+surface_code_d5        procs= 128 rep 2       35,169,041 shots/s
+surface_code_d5        procs= 256 rep 0       57,200,963 shots/s
+surface_code_d5        procs= 256 rep 1       55,837,293 shots/s
+surface_code_d5        procs= 256 rep 2       57,559,916 shots/s
+== 2026-10-14 11:51:51 CAMPAIGN_DONE

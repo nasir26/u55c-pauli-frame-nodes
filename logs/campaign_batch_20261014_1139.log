@@ -1,0 +1,17 @@
+== 2026-10-14 11:39:07 timing: <REPO>/build/batch/hw_tf/_x/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt
+WNS 0.003 ns
+kernel clock in the xclbin: 300 MHz
+8cb95f24f38cdb8456cc2407460d3bbdf54f4a6ca893e2a185d826c091eb6ebc  <REPO>/build/batch/hw_tf/stim_batch_sampler.xclbin
+== 2026-10-14 11:39:07 check and throughput
+Traceback (most recent call last):
+  File "<REPO>/bench/multicard/run_batch.py", line 148, in <module>
+    main()
+  File "<REPO>/bench/multicard/run_batch.py", line 123, in main
+    check(xclbin, cards, progs, d, rec)
+  File "<REPO>/bench/multicard/run_batch.py", line 51, in check
+    r = subprocess.run(host_cmd(xclbin, bp, ins, fold, 4, 2, dev, 4242, dev + 1, dump), check=True,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WS>/envs/cpu/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['<REPO>/build/batch/xrt_batch', '<REPO>/build/batch/hw_tf/stim_batch_sampler.xclbin', '/tmp/tmp5o4xwf6z/repetition_code_d3.instr.bin', '/tmp/tmp5o4xwf6z/repetition_code_d3.fold.bin', '9', '9', '4', '2', '0', '4242', '1', '/tmp/tmp5o4xwf6z/dump.bin']' died with <Signals.SIGABRT: 6>.
+run_batch failed
